@@ -506,153 +506,270 @@ def inject_css():
             box-shadow: 0 4px 12px rgba(255, 101, 54, 0.12);
         }
 
-        /* Quality Score Panel */
-        .score-panel {
+        /* Unified Stats Ribbon (PawSpa Inspired) */
+        .stats-ribbon {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: #FFFFFF;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 1.4rem 1.8rem;
+            margin-bottom: 1.6rem;
+            box-shadow: 0 8px 24px rgba(235, 120, 80, 0.06);
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.1rem;
+            font-weight: 850;
+            color: #1F242E;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .stat-value.text-coral {
+            color: var(--coral);
+        }
+
+        .stat-value.text-mint {
+            color: #00B37E;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #64748B;
+            margin-top: 0.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 44px;
+            background: var(--line);
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .stats-ribbon {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+            .stat-divider {
+                display: none;
+            }
+        }
+
+        /* Executive Health Card */
+        .health-card {
             background: #FFFFFF;
             border: 1px solid var(--line);
             border-radius: 22px;
-            padding: 1.6rem;
-            box-shadow: 0 12px 32px rgba(235, 120, 80, 0.08);
-            text-align: center;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 10px 28px rgba(235, 120, 80, 0.06);
+            margin-bottom: 1.8rem;
         }
 
-        .score-ring {
-            width: 176px;
-            height: 176px;
-            border-radius: 50%;
-            background: conic-gradient(#FF6536 calc(var(--score) * 1%), #FFE4D6 0);
-            display: grid;
-            place-items: center;
-            margin: 0 auto 1.2rem auto;
-            box-shadow: 0 8px 24px rgba(255, 101, 54, 0.20);
+        .health-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.85rem;
         }
 
-        .score-ring-inner {
-            width: 128px;
-            height: 128px;
-            border-radius: 50%;
-            background: #FFF8F4;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            box-shadow: inset 0 0 0 1px var(--line);
+        .health-title {
+            font-size: 1.15rem;
+            font-weight: 750;
+            color: #1F242E;
         }
 
-        .score-number {
-            font-size: 2.2rem;
-            font-weight: 800;
+        .health-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .health-badge.good {
+            background: #E8FAF4;
+            color: #00875A;
+            border: 1px solid #B7F4E3;
+        }
+
+        .health-badge.warning {
+            background: var(--coral-soft);
+            color: var(--coral);
+            border: 1px solid #FFD0BC;
+        }
+
+        .health-badge.danger {
+            background: #FFF0F2;
+            color: var(--pink);
+            border: 1px solid #FFCCD6;
+        }
+
+        .health-score-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .health-big-score {
+            font-size: 2.9rem;
+            font-weight: 850;
             color: var(--coral);
             line-height: 1;
         }
 
-        .score-caption {
-            color: var(--muted);
-            font-size: 0.82rem;
+        .health-score-max {
+            font-size: 1.05rem;
             font-weight: 600;
-            margin-top: 0.25rem;
+            color: #94A3B8;
         }
 
-        /* Insight & Recommendation Cards */
-        .briefing-card,
+        .progress-track {
+            width: 100%;
+            height: 10px;
+            background: #FFF0E6;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 0.85rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF914D 0%, #FF6536 100%);
+            border-radius: 999px;
+        }
+
+        .health-notes {
+            font-size: 0.93rem;
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        .issue-chips-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 1.1rem;
+        }
+
+        .issue-chip {
+            background: #FFF8F4;
+            border: 1px solid #FEDECE;
+            border-radius: 12px;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #2D3142;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .issue-chip strong {
+            color: var(--coral);
+            font-weight: 800;
+        }
+
+        .chart-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .chart-title {
+            font-size: 1.08rem;
+            font-weight: 750;
+            color: #1F242E;
+            margin: 0 !important;
+        }
+
+        /* Action & Inspection Cards */
         .recommendation-card,
         .check-card {
             background: #FFFFFF;
             border: 1px solid var(--line);
             border-radius: 18px;
-            padding: 1.3rem;
+            padding: 1.4rem;
             box-shadow: 0 8px 24px rgba(235, 120, 80, 0.06);
-            margin-bottom: 0.95rem;
+            margin-bottom: 1rem;
             transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
 
-        .briefing-card:hover,
         .recommendation-card:hover,
         .check-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(235, 120, 80, 0.12);
         }
 
-        .briefing-title,
-        .recommendation-title,
-        .check-title {
-            color: #1F242E;
-            font-weight: 750;
-            font-size: 1.05rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .briefing-copy,
-        .recommendation-copy,
-        .check-copy {
-            color: #5A6275;
-            font-size: 0.93rem;
-            margin: 0;
-        }
-
-        .tag-row {
+        .card-top-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.85rem;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
         }
 
-        .tag {
+        .priority-pill {
+            font-size: 0.74rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 0.25rem 0.65rem;
             border-radius: 999px;
-            padding: 0.3rem 0.75rem;
-            font-size: 0.78rem;
-            font-weight: 600;
+        }
+
+        .priority-pill-high {
+            background: #FFF0F2;
+            color: var(--pink);
+            border: 1px solid #FFCCD6;
+        }
+
+        .priority-pill-medium {
             background: var(--coral-soft);
             color: var(--coral);
             border: 1px solid #FFD0BC;
         }
 
-        .priority-high {
-            border-left: 6px solid var(--pink);
+        .priority-pill-low {
+            background: #E8FAF4;
+            color: #00875A;
+            border: 1px solid #B7F4E3;
         }
 
-        .priority-medium {
-            border-left: 6px solid #FF8C60;
+        .recommendation-title,
+        .check-title {
+            color: #1F242E;
+            font-weight: 750;
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
         }
 
-        .priority-low {
-            border-left: 6px solid var(--mint);
-        }
-
-        /* Chart Legends */
-        .chart-legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem;
-            margin: 0.8rem 0 1.4rem 0;
-        }
-
-        .legend-item {
-            align-items: center;
-            background: #FFFFFF;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            color: #4B5563;
-            display: inline-flex;
-            font-size: 0.82rem;
-            font-weight: 600;
-            gap: 0.45rem;
-            padding: 0.4rem 0.8rem;
-            box-shadow: 0 2px 8px rgba(235, 120, 80, 0.05);
-        }
-
-        .legend-swatch {
-            border-radius: 999px;
-            display: inline-block;
-            height: 0.65rem;
-            width: 0.65rem;
+        .recommendation-copy,
+        .check-copy {
+            color: #5A6275;
+            font-size: 0.93rem;
+            margin: 0;
+            line-height: 1.5;
         }
 
         /* Streamlit Input Controls */
         [data-testid="stFileUploader"] {
             background: #FFFFFF;
-            border: 2px dashed #FF9A76;
+            border: 1px solid var(--line);
             border-radius: 18px;
-            padding: 14px;
+            padding: 16px;
             box-shadow: 0 6px 18px rgba(235, 120, 80, 0.04);
         }
 
@@ -715,11 +832,11 @@ def render_hero(source_name):
         <div class="hero">
             <div class="hero-grid">
                 <div>
-                    <div class="hero-badge">🛡️ Intelligent Data Quality Platform</div>
-                    <h1>DataGuard <span class="gradient-text">AI</span></h1>
-                    <p>Audit customer migration readiness, isolate the messy records, and turn data cleanup into a focused handoff plan.</p>
+                    <div class="hero-badge">✦ Dataset Health & Quality Monitor</div>
+                    <h1>DataGuard <span class="gradient-text">Studio</span></h1>
+                    <p>Automated validation for contacts, duplicates, missing attributes, and onboarding flow.</p>
                 </div>
-                <div class="source-pill">Source: {safe_source}</div>
+                <div class="source-pill">📁 {safe_source}</div>
             </div>
         </div>
         """,
@@ -727,40 +844,78 @@ def render_hero(source_name):
     )
 
 
-def render_score_panel(quality_score, issue_count):
-    """Render a visual quality score card."""
-    safe_label = html.escape(score_label(quality_score))
+def render_stats_ribbon(total_rows, total_cols, issue_count, quality_score):
+    """Render a clean, unified stats ribbon inspired by the PawSpa reference."""
     st.markdown(
         f"""
-        <div class="score-panel">
-            <div class="score-ring" style="--score: {quality_score};">
-                <div class="score-ring-inner">
-                    <div>
-                        <div class="score-number">{quality_score}%</div>
-                        <div class="score-caption">Quality score</div>
-                    </div>
-                </div>
+        <div class="stats-ribbon">
+            <div class="stat-item">
+                <div class="stat-value">{total_rows:,}</div>
+                <div class="stat-label">Total Records</div>
             </div>
-            <div class="briefing-title">{safe_label}</div>
-            <p class="briefing-copy">{issue_count:,} issue signals found across this dataset.</p>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value">{total_cols}</div>
+                <div class="stat-label">Data Columns</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value text-coral">{issue_count:,}</div>
+                <div class="stat-label">Flagged Issues</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value text-mint">{quality_score}%</div>
+                <div class="stat-label">Health Score</div>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
 
-def render_briefing_card(title, copy, tags):
-    """Render a compact insight card."""
-    safe_title = html.escape(title)
-    safe_copy = html.escape(copy)
-    safe_tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in tags)
+def render_health_card(quality_score, total_rows, total_cols, issue_breakdown_dict):
+    """Render an executive dataset health scorecard with clean breakdown chips."""
+    if quality_score >= 95:
+        badge_class = "good"
+        badge_text = "✦ Excellent Health"
+        advice = "The dataset has passed all primary validation checks and is ready for production use."
+    elif quality_score >= 85:
+        badge_class = "warning"
+        badge_text = "⚠ Light Cleanup Recommended"
+        advice = "The dataset is in solid condition with isolated contact or status issues requiring targeted fixes."
+    else:
+        badge_class = "danger"
+        badge_text = "✕ Action Required"
+        advice = "Critical errors including duplicates or missing primary keys need resolution before proceeding."
+
+    chips_html = ""
+    for label, count in issue_breakdown_dict.items():
+        if count > 0:
+            chips_html += f'<div class="issue-chip"><span>{html.escape(label)}</span><strong>{count:,}</strong></div>'
+
+    total_cells = max(total_rows * total_cols, 1)
 
     st.markdown(
         f"""
-        <div class="briefing-card">
-            <div class="briefing-title">{safe_title}</div>
-            <p class="briefing-copy">{safe_copy}</p>
-            <div class="tag-row">{safe_tags}</div>
+        <div class="health-card">
+            <div class="health-header">
+                <div class="health-title">Dataset Health & Quality Score</div>
+                <span class="health-badge {badge_class}">{badge_text}</span>
+            </div>
+            <div class="health-score-row">
+                <div class="health-big-score">{quality_score}%</div>
+                <div class="health-score-max">/ 100% Quality Index</div>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" style="width: {min(max(quality_score, 5), 100)}%;"></div>
+            </div>
+            <div class="health-notes">
+                Evaluated <strong>{total_cells:,}</strong> total data cells across <strong>{total_rows:,}</strong> records. {advice}
+            </div>
+            <div class="issue-chips-row">
+                {chips_html}
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -785,8 +940,11 @@ def render_recommendation_card(recommendation):
     priority = recommendation["priority"].lower()
     st.markdown(
         f"""
-        <div class="recommendation-card priority-{html.escape(priority)}">
-            <div class="recommendation-title">{html.escape(recommendation["priority"])} priority: {html.escape(recommendation["title"])}</div>
+        <div class="recommendation-card">
+            <div class="card-top-row">
+                <span class="priority-pill priority-pill-{html.escape(priority)}">{html.escape(recommendation["priority"])} Priority</span>
+            </div>
+            <div class="recommendation-title">{html.escape(recommendation["title"])}</div>
             <p class="recommendation-copy">{html.escape(recommendation["detail"])}</p>
         </div>
         """,
@@ -941,45 +1099,29 @@ def show_overview(
     issue_summary,
     missing_by_column,
     date_results,
+    issue_breakdown_dict,
 ):
     """Display the main overview section."""
-    left_column, right_column = st.columns([0.34, 0.66], gap="large")
+    total_rows = len(df)
+    total_cols = len(df.columns)
 
-    with left_column:
-        render_score_panel(quality_score, issue_count)
-
-    with right_column:
-        metric_columns = st.columns(4)
-        metric_columns[0].metric("Rows", f"{len(df):,}")
-        metric_columns[1].metric("Columns", f"{len(df.columns):,}")
-        metric_columns[2].metric("Issue Signals", f"{issue_count:,}")
-        metric_columns[3].metric(
-    "Readiness",
-    "Needs cleanup" if quality_score < 90 else "Ready"
-)
-
-        render_briefing_card(
-            "Migration briefing",
-            "Use the issue filters to move from overall health to the exact customer records that need cleanup.",
-            ["CSV upload", "Data QA", "Onboarding workflow"],
-        )
+    render_health_card(quality_score, total_rows, total_cols, issue_breakdown_dict)
 
     chart_columns = st.columns(2, gap="large")
 
     with chart_columns[0]:
-        st.subheader("Issue Mix")
+        st.markdown('<div class="chart-header-row"><h3 class="chart-title">Issue Breakdown by Category</h3></div>', unsafe_allow_html=True)
         st.bar_chart(
             issue_summary,
             x="Issue",
             y="Count",
             color="Color",
             horizontal=True,
-            height=360,
+            height=340,
         )
-        render_chart_legend(issue_summary, "Issue", "Color", "Count")
 
     with chart_columns[1]:
-        st.subheader("Missing Values by Column")
+        st.markdown('<div class="chart-header-row"><h3 class="chart-title">Missing Values by Column</h3></div>', unsafe_allow_html=True)
         missing_chart = series_to_colored_chart(
             missing_by_column,
             "Column",
@@ -990,15 +1132,14 @@ def show_overview(
             x="Column",
             y="Missing Values",
             color="Color",
-            height=360,
+            height=340,
         )
-        render_chart_legend(missing_chart, "Column", "Color", "Missing Values")
 
     lower_columns = st.columns(2, gap="large")
 
     with lower_columns[0]:
         if "onboarding_status" in df.columns:
-            st.subheader("Onboarding Status Distribution")
+            st.markdown('<div class="chart-header-row"><h3 class="chart-title">Lifecycle & Status Distribution</h3></div>', unsafe_allow_html=True)
             status_counts = df["onboarding_status"].fillna("Missing").replace("", "Blank").value_counts()
             status_chart = series_to_colored_chart(status_counts, "Status", "Records")
             st.bar_chart(
@@ -1006,9 +1147,8 @@ def show_overview(
                 x="Status",
                 y="Records",
                 color="Color",
-                height=360,
+                height=340,
             )
-            render_chart_legend(status_chart, "Status", "Color", "Records")
         else:
             st.info("No onboarding_status column was detected.")
 
@@ -1029,12 +1169,12 @@ def show_date_trend(date_results):
         st.info(f"No valid dates were found in {first_date_column}.")
         return
 
-    st.subheader(f"Records Over Time by {first_date_column}")
+    st.markdown(f'<div class="chart-header-row"><h3 class="chart-title">Timeline ({html.escape(first_date_column)})</h3></div>', unsafe_allow_html=True)
     monthly_counts = parsed_dates.dt.to_period("M").value_counts().sort_index()
     monthly_counts.index = monthly_counts.index.astype(str)
     monthly_chart = monthly_counts.reset_index()
     monthly_chart.columns = ["Month", "Records"]
-    st.line_chart(monthly_chart, x="Month", y="Records", color="#FF6536", height=360)
+    st.line_chart(monthly_chart, x="Month", y="Records", color="#FF6536", height=340)
 
 
 def show_data_preview(df, issue_masks, preview_rows):
@@ -1153,27 +1293,27 @@ def show_quality_checks(
 
 
 def show_recommendations(recommendations, issue_summary):
-    """Display recommendations and an issue backlog."""
+    """Display recommendations and an issue priority queue."""
     left_column, right_column = st.columns([0.58, 0.42], gap="large")
 
     with left_column:
-        st.subheader("Cleanup Playbook")
+        st.markdown('<div class="chart-header-row"><h3 class="chart-title">Recommended Actions</h3></div>', unsafe_allow_html=True)
         for recommendation in recommendations:
             render_recommendation_card(recommendation)
 
     with right_column:
-        st.subheader("Issue Backlog")
+        st.markdown('<div class="chart-header-row"><h3 class="chart-title">Priority Queue</h3></div>', unsafe_allow_html=True)
         backlog = issue_summary[issue_summary["Count"] > 0].sort_values("Count", ascending=False)
 
         if backlog.empty:
-            st.success("No issue backlog. Nice and quiet.")
+            st.success("All checks passed. No issues in the queue.")
         else:
             st.dataframe(backlog, width="stretch", hide_index=True)
 
 
 def main():
     st.set_page_config(
-        page_title="DataGuard AI",
+        page_title="DataGuard Studio",
         layout="wide",
     )
     inject_css()
@@ -1198,7 +1338,6 @@ def main():
         st.warning("The dataset loaded successfully, but it does not contain any rows.")
 
     st.sidebar.success(f"Loaded: {source_name}")
-    render_hero(source_name)
 
     total_rows = len(df)
     total_columns = len(df.columns)
@@ -1244,6 +1383,9 @@ def main():
     )
     quality_score = calculate_quality_score(total_rows, total_columns, issue_count)
 
+    render_hero(source_name)
+    render_stats_ribbon(total_rows, total_columns, issue_count, quality_score)
+
     issue_summary = build_issue_summary(
         missing_values,
         duplicate_rows,
@@ -1273,6 +1415,16 @@ def main():
         status_results,
     )
 
+    issue_breakdown_dict = {
+        "Status Issues": status_issue_count,
+        "Missing Values": missing_values,
+        "Date Anomalies": invalid_date_count,
+        "Duplicate IDs": duplicate_id_count,
+        "Invalid Emails": invalid_email_count,
+        "Invalid Phones": invalid_phone_count,
+        "Duplicate Rows": duplicate_rows,
+    }
+
     overview_tab, preview_tab, checks_tab, recommendations_tab = st.tabs(
         ["Overview", "Data Preview", "Quality Checks", "Recommendations"]
     )
@@ -1285,6 +1437,7 @@ def main():
             issue_summary,
             missing_by_column,
             date_results,
+            issue_breakdown_dict,
         )
 
     with preview_tab:
